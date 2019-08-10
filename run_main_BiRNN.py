@@ -91,7 +91,7 @@ padded_index_data_x_test = padding_BIO_test(index_sents_test, maxlen, word2index
 ########################## 进入模型阶段 ##########################
 birnn_model = BiRNN_Model(maxlen, hidden_n, embeddings, bio_label_list)
 
-device = "cuda:1" if torch.cuda.is_available() else "cpu"
+device = "cuda:0" if torch.cuda.is_available() else "cpu"
 # device = "cpu"
 birnn_model.to(device)
 params = filter(lambda param: param.requires_grad, birnn_model.parameters())
